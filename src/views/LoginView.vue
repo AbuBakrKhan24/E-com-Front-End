@@ -59,7 +59,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 
- 
+
 
       @keyframes load {
         33% {

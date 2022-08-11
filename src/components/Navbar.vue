@@ -3,7 +3,7 @@
     <div class="container-fluid ms-5">
          <!-- Book Icon -->
 
-    <svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg" class="pokeballAnimation">
+    <svg width="60" height="60" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg" class="pokeballAnimation">
 
 
    
@@ -135,7 +135,32 @@ export default {
 </script>
 <style lang="scss" scoped>
 
+// nav{
+//         cursor: url("https://cur.cursors-4u.net/anime/ani-12/oth1118.ani"), url("https://cur.cursors-4u.net/anime/ani-12/oth1118.png"), default;
+//     }
 
+.pokeballAnimation {
+        transform-origin: center bottom;
+        animation: load 1s infinite alternate;
+      }
+
+      @keyframes load {
+        33% {
+          transform: rotate(10deg)
+        }
+
+        66% {
+          transform: rotate(-10deg)
+        }
+      }
+
+.navbar-brand {
+  font-size: 31px;
+}
+
+a {
+  font-size: 20px;
+}
 
 .logo-image {
   width: 46px;

@@ -5,8 +5,8 @@ export default createStore({
     // user: null || window.localStorage.getItem("user"),
     user: null,
     users: null,
-    book: null,
-    books: null,
+    product: null,
+    products: null,
     asc: true,
   },
 
@@ -24,7 +24,7 @@ export default createStore({
       state.books = books;
     },
     sortBooksByTitle: (state) => {
-      state.books = state.books.sort((a, b) => {
+      state.books = state.products.sort((a, b) => {
         // return a.number - b.number;
         if (a.title < b.title) {
           return -1;
@@ -35,7 +35,7 @@ export default createStore({
         return 0;
       });
       if (!state.asc) {
-        state.books.reverse();
+        state.products.reverse();
       }
       state.asc = !state.asc;
     },
@@ -59,14 +59,14 @@ export default createStore({
   actions: {
     // USER
     getUser: async (context, id) => {
-      fetch("http://localhost:3000/user" + id)
+      fetch("http://localhost:6969/users" + id)
         .then((res) => res.json())
         .then((json) => context.commit("setUser", json))
         .catch((err) => console.log(err.message));
     },
     // USERS
     getUsers: async (context) => {
-      fetch("http://localhost:3000/users")
+      fetch("http://localhost:6969/users")
         .then((res) => res.json())
         .then((data) => context.commit("setUsers", data))
         .catch((err) => console.log(err.message));
@@ -76,7 +76,8 @@ export default createStore({
     login: async (context, payload) => {
       const { email, password } = payload;
       const response = await fetch(
-        `http://localhost:3000/users?email=${email}&password=${password}`
+        // `http://localhost:3000/users?email=${email}&password=${password}`
+        `http://localhost:6969/users?email=${email}&password=${password}`
       );
       const userData = await response.json();
       console.log(userData);
@@ -88,7 +89,7 @@ export default createStore({
     },
     // REGISTER USER
     register: async (context, user) => {
-      fetch("http://localhost:3000/users", {
+      fetch("http://localhost:6969/users", {
         method: "POST",
         body: JSON.stringify(user),
 
@@ -104,25 +105,25 @@ export default createStore({
         .then((json) => context.commit("setUser", json));
     },
 
-    // BOOKS
-    // SHOW ALL OF EM BOOKS
+    // Products
+    // SHOW ALL OF Products
     getBooks: async (context) => {
-      fetch("http://localhost:3000/books")
+      fetch("http://localhost:6969/products")
         .then((res) => res.json())
-        .then((data) => context.commit("setBooks", data))
+        .then((data) => context.commit("setProducts", data))
         .catch((err) => console.log(err.message));
     },
 
     // SHOW ONE BOOK
     getBook: async (context, id) => {
-      fetch("http://localhost:3000/books/" + id)
+      fetch("http://localhost:6969/products/" + id)
         .then((response) => response.json())
-        .then((json) => context.commit("setBook", json));
+        .then((json) => context.commit("setProduct", json));
     },
 
     // ADD A BOOK
     addBook: async (context, book) => {
-      fetch("http://localhost:3000/books", {
+      fetch("http://localhost:6969/products", {
         method: "POST",
         body: JSON.stringify(book),
         headers: {
@@ -130,19 +131,19 @@ export default createStore({
         },
       })
         .then((response) => response.json())
-        .then((json) => context.commit("setBook", json));
+        .then((json) => context.commit("setProduct", json));
     },
 
-    // DELETE A BOOK
+    // DELETE A Product
     deleteBook: async (context, id) => {
-      fetch("http://localhost:3000/books/" + id, {
+      fetch("http://localhost:6969/products/" + id, {
         method: "DELETE",
       })
         .then((response) => response.json())
-        .then((json) => context.dispatch("getBooks"));
+        .then((json) => context.dispatch("getProducts"));
     },
 
-    // UPDATE A BOOK
+    // UPDATE A Product
     updateBook: async (context, book) => {
       const {
         id,
@@ -157,7 +158,7 @@ export default createStore({
         createdBy,
         year,
       } = book;
-      fetch("http://localhost:3000/books/" + id, {
+      fetch("http://localhost:6969/products/" + id, {
         method: "PUT",
         body: JSON.stringify({
           genre: genre,
@@ -176,26 +177,26 @@ export default createStore({
         },
       })
         .then((response) => response.json())
-        .then((json) => context.commit("setBook", json));
+        .then((json) => context.commit("setProduct", json));
     },
 
     // PROFILE
     // PROFILE
     // ADD READING LIST
-    addReadingList: async (context, book) => {
-      context.state.user.readingList.push(book);
+    addReadingList: async (context, product) => {
+      context.state.user.readingList.push(product);
       context.dispatch("updateUserInfo", context.state.user);
     },
     // DELETE READING LIST ITEM
-    removeReadingList: async (context, book) => {
+    removeReadingList: async (context, product) => {
       context.state.user.readingList = context.state.user.readingList.filter(
-        (item) => item.id != book.id
+        (item) => item.id != product.id
       );
       context.dispatch("updateUserInfo", context.state.user);
     },
     // DELETE A USER
     deleteUser: async (context, id) => {
-      fetch("http://localhost:3000/users/" + id, {
+      fetch("http://localhost:6969/users/" + id, {
         method: "DELETE",
       })
         .then((response) => response.json())
@@ -215,7 +216,7 @@ export default createStore({
         about,
         role,
       } = user;
-      fetch("http://localhost:3000/users/" + id, {
+      fetch("http://localhost:6969/users/" + id, {
         method: "PUT",
         body: JSON.stringify({
           email: email,

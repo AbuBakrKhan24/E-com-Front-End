@@ -70,7 +70,7 @@
         <div class="col-lg-6">
           <img
             alt="Bookdom logo"
-            src="https://jpg2png.com/download/bpe7a21k15vogl0l/file_4q61eaf157t15se1kvtcdm1q02/gohan.png"
+            src="https://github.com/AbuBakrKhan24/e-com-front-end/blob/main/public/gohan.png?raw=true"
             class="img-fluid home_img"
           />
         </div>
