@@ -4,15 +4,20 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 details">
+          <!-- These are the Details on the home page -->
           <header>
-          <h1>Hello there, we are BOOKDOM.</h1>
-          <h4>The world's most-loved social storytelling platform</h4>
+          <h1>Hello there and welcome to Fanime.</h1>
+          <h4>We are an online store that are here to make you happy</h4>
           <p class="text-light mt-2">
-            BOOKDOM connects a global community of 90 million readers and
-            writers through the power of story.
+            by selling you our anime merchandise that most peaople tend to look for but end up not finding any.
           </p>
           </header>
+<!-- These are the Details on the home page Done -->
+          
+
+          <!-- These are the buttons on the home page -->
           <buttons> 
+            <!-- This works if its a user logged in -->
           <div
             class="buttons d-flex justify-content-center mt-5 mb-5"
             v-if="user"
@@ -20,7 +25,7 @@
             <router-link to="/library"
               ><button
                 type="button"
-                class="read btn btn-lg ms-5 text-light rounded-pill"
+                class="read btn ms-5 text-light rounded-pill"
               >
                 Start Reading
               </button></router-link
@@ -28,12 +33,15 @@
             <router-link to="/library">
               <button
                 type="button"
-                class="write btn btn-lg ms-5 text-light rounded-pill"
+                class="write btn ms-5 text-light rounded-pill"
               >
                 Start Writing
               </button>
             </router-link>
           </div>
+          <!-- This works if its a user logged in Done -->
+            
+            <!-- This will push the user to login page if they not a user -->
           <div class="buttons d-flex justify-content-center mt-5 mb-5" v-else>
             <router-link to="/login"
               ><button
@@ -52,41 +60,47 @@
               </button>
             </router-link>
           </div>
+          <!-- This will push the user to login page if they not a user Doen -->
+            
           </buttons>
+          <!-- These are the buttons on the home page Done -->
+          
         </div>
+        <!-- Image On Home Page -->
         <div class="col-lg-6">
           <img
             alt="Bookdom logo"
-            src=""
-            class="img-fluid"
+            src="https://jpg2png.com/download/bpe7a21k15vogl0l/file_4q61eaf157t15se1kvtcdm1q02/gohan.png"
+            class="img-fluid home_img"
           />
         </div>
+          <!-- Image On Home Page Done -->
    
    
       </div>
      
   </div>
 
-
+<!-- Footer -->
         <div id="footer">
       <div class="container d-flex justify-content-between">
-        <p class="footer text-light mt-5">© 2022 BOOKDOM</p>
+        <p class="footer text-light mt-5">© 2022 Fanime</p>
         <ul class="icons mt-4 d-flex">
           <li class="ms-5 text-light">
             
-            <a target="_blank" href="https://fb.me/BookdomProject">
+            <a target="_blank" href="#">
           <i class="fa-brands fa-facebook-square FaceBook"></i>
             </a>
           </li>
           
           <li class="ms-5 text-light">
-            <a target="_blank" href="https://www.instagram.com/bookdom_project/">
+            <a target="_blank" href="#">
             <i class="fa-brands fa-instagram Instagram"></i>
             </a>
           </li>
           
           <li class="ms-5 text-light">
-            <a target="_blank" href="https://twitter.com/BookdomProject">
+            <a target="_blank" href="#">
             <i class="fa-brands fa-twitter Twitter"></i>
             </a>
             </li>
@@ -94,7 +108,8 @@
         </ul>
       </div>
     </div>
- 
+<!-- Footer Done --> 
+
   
     </div>
 
@@ -173,20 +188,19 @@ h4 {
 }
 
 #hello {
-    /* padding-top: 185px; */
+
     padding-top: 155px;
-    /* padding-bottom: 8%; */
-    /* height: 100%; */
-    /* height: 92vh; */
+
     background-image: radial-gradient(circle, #3d2f67, #34255f, #2a1c56, #21124e, #170846);
 }
-/* .yo {
-  background-image: linear-gradient( to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1 );
-} */
+
 
 img {
-  height: 50vh;
+
+    height: 50vh;
+    border-radius: 10%;
 }
+
 
 button.read {
   background-color: rgba(255, 152, 104);

@@ -263,7 +263,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .box{
-  background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+ background-image: radial-gradient(circle, #3d2f67, #34255f, #2a1c56, #21124e, #170846);
 }
 // Form_Holder
 .Form_Holder {
